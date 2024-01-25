@@ -3,63 +3,69 @@
 $h-spotify-logo: 120px;
 $h-menu-opcoes: 150px;
 $m-entre-menus: 10px;
+$h-footer-user: 70px;
 
 :host {
-    max-width: 300px;
-    min-height: 100vh;
-    overflow-y: hidden;
-    display: flex;
+  max-width: 300px;
+  min-height: 100vh;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: $cor-fundo2;
+  box-shadow: 1px 0px 15px #00000012;
+
+  .menus {
+    flex-grow: 1;
     flex-direction: column;
-    background-color: $cor-fundo2;
-    box-shadow: 1px 0px 15px #00000012;
-  
-    .menus {
-      flex-grow: 1;
-      flex-direction: column;
-      height: 100%;
-      padding: 0px 40px 0px 40px;
-  
-      .image-container {
-        min-height: $h-spotify-logo;
-  
-        img {
-          width: 70%;
+    height: 100%;
+    padding: 0px 40px 0px 40px;
+
+    .image-container {
+      min-height: $h-spotify-logo;
+
+      img {
+        width: 70%;
+      }
+    }
+
+    .menu-container {
+      width: 100%;
+
+      &.flex {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      &.opcoes {
+        min-height: $h-menu-opcoes;
+
+        * {
+          margin-bottom: $m-entre-menus;
         }
       }
-  
-      .menu-container {
+
+      .playlist-titulo {
+        margin: 10px 0px;
+        align-self: flex-start;
+        font-weight: 700;
+        font-size: .7rem;
+        color: $preto-transparent-30;
+      }
+
+      .playlist-scroll {
         width: 100%;
-  
-        &.flex {
-          flex-direction: column;
-          justify-content: flex-start;
-          align-items: center;
+        max-height: 50vh;
+        overflow-y: auto;
+
+        &::-webkit-scrollbar{
+          display: none;
         }
-  
-        &.opcoes {
-          min-height: $h-menu-opcoes;
-  
-          * {
-            margin-bottom: $m-entre-menus;
-          }
-        }
-  
-        .playlist-titulo {
-          margin: 10px 0px;
-          align-self: flex-start;
-          font-weight: 700;
-          font-size: .7rem;
-          color: $preto-transparent-30;
-        }
-  
-        .playlist-scroll {
-          width: 100%;
-          overflow-y: auto;
-  
-          * {
-            margin-bottom: $m-entre-menus;
-          }
+
+        * {
+          margin-bottom: $m-entre-menus;
         }
       }
     }
   }
+}
