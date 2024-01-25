@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { SpotifyConfiguration } from '../../environments/environment';
 import Spotify from 'spotify-web-api-js'
 import { Router } from '@angular/router';
-import { IUsuario } from '../Interfaces/iusuario';
 import { SpotifyPlaylistParaPlaylist, SpotifyUserParaUsuario } from '../common/spotifyHelper';
 import { IPlaylist } from '../Interfaces/IPlaylist';
+import { IUsuario } from '../Interfaces/IUsuario';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +23,7 @@ export class SpotifyService {
   async inicializarUsuario() {
     //verificar se o usuario foi iniciado na memória
     if(!!this.usuario)
-    return true;
+      return true;
 
     //pega o token
     const token = localStorage.getItem('token');
@@ -34,15 +34,15 @@ export class SpotifyService {
     try {
 
       this.definirAccessToken(token);
-      this.obterSpotifyUsuario();
-      return !!this.usuario;
+      await this.obterSpotifyUsuario();
+      return true;
 
     }catch(ex){
       return false;
     }
   }
 
-  async obterSpotifyUsuario(){
+  async obterSpotifyUsuario() {
     const userInfo = await this.spotifyApi.getMe();
     this.usuario = SpotifyUserParaUsuario(userInfo);
   }
@@ -71,7 +71,7 @@ export class SpotifyService {
 
   async buscarPlaylistUsuario(offset = 0, limit = 50): Promise<IPlaylist[]>{
     const playlists = await this.spotifyApi.getUserPlaylists(this.usuario.id, { offset, limit });
-    console.log(this.usuario);
+    console.log(playlists);
     return playlists.items.map(SpotifyPlaylistParaPlaylist);
   }
 }
