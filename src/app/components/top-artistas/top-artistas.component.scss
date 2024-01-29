@@ -18,16 +18,26 @@
         align-items: flex-start;
     }
 
+    .button-play-top{
+        padding: 10px;
+        background-color: $cor-primaria;
+        color: white;
+        width: 10vw;
+        font-size: .90rem;
+        border: 0;
+        border-radius: 500px;
+        cursor: pointer;
+    }
+
     .image{
         position: absolute;
         top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
+        right: 0;
+        height: 200px;
+        width: 200px;
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
-        opacity: .4;
         z-index: 0;
     }
 

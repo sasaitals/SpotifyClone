@@ -9,6 +9,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RodapeUsuarioComponent } from '../../components/rodape-usuario/rodape-usuario.component';
 import { HomeComponent } from '../home/home.component';
 import { TopArtistasComponent } from '../../components/top-artistas/top-artistas.component';
+import { PainelDireitoComponent } from '../../components/painel-direito/painel-direito.component';
 
 
 
@@ -19,7 +20,8 @@ import { TopArtistasComponent } from '../../components/top-artistas/top-artistas
     BotaoMenuComponent,
     RodapeUsuarioComponent,
     HomeComponent,
-    TopArtistasComponent
+    TopArtistasComponent,
+    PainelDireitoComponent
   ],
   imports: [
     CommonModule,
