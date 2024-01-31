@@ -3,6 +3,9 @@ import { IArtista } from "../Interfaces/IArtista";
 import { IMusica } from "../Interfaces/IMusica";
 import { IPlaylist } from "../Interfaces/IPlaylist";
 import { IUsuario } from "../Interfaces/IUsuario";
+import { IFaixa } from "../Interfaces/IFaixa";
+import axios from "axios";
+import { newMusica } from "./factories";
 
 export function SpotifyUserParaUsuario(user: SpotifyApi.CurrentUsersProfileResponse): IUsuario{
     return {
@@ -20,9 +23,7 @@ export function SpotifyPlaylistParaPlaylist(playlist: SpotifyApi.PlaylistObjectS
     }
 }
 
-export function SpotifyArtistaParaArtista(
-    spotifyArtista: SpotifyApi.ArtistObjectFull
-    ) : IArtista{
+export function SpotifyArtistaParaArtista(spotifyArtista: SpotifyApi.ArtistObjectFull) : IArtista{
     return {
         id: spotifyArtista.id,
         imagemUrl: spotifyArtista.images.sort((a,b) => a.width - b.width).pop().url,
@@ -30,7 +31,18 @@ export function SpotifyArtistaParaArtista(
     };
 }
 
+export function principalTrackArtista(spotifyFaixa: SpotifyApi.TrackObjectFull): IFaixa{
+    return{
+        id: spotifyFaixa.id,
+        nome: spotifyFaixa.name,
+        previewUrl: spotifyFaixa.preview_url
+    }
+}
+
 export function SpotifyTrackparaMusica(spotifyTrack: SpotifyApi.TrackObjectFull) : IMusica{
+
+    if(!spotifyTrack)
+        return newMusica();
 
     const msParaMinutos = (ms: number) => {
         const data = addMilliseconds(new Date(0), ms);

@@ -2,11 +2,13 @@ import { Injectable } from '@angular/core';
 import { SpotifyConfiguration } from '../../environments/environment';
 import Spotify from 'spotify-web-api-js'
 import { Router } from '@angular/router';
-import { SpotifyArtistaParaArtista, SpotifyPlaylistParaPlaylist, SpotifyTrackparaMusica, SpotifyUserParaUsuario } from '../common/spotifyHelper';
+import { SpotifyArtistaParaArtista, SpotifyPlaylistParaPlaylist, SpotifyTrackparaMusica, SpotifyUserParaUsuario, principalTrackArtista } from '../common/spotifyHelper';
 import { IPlaylist } from '../Interfaces/IPlaylist';
 import { IUsuario } from '../Interfaces/IUsuario';
 import { IArtista } from '../Interfaces/IArtista';
 import { IMusica } from '../Interfaces/IMusica';
+import { IFaixa } from '../Interfaces/IFaixa';
+import axios from 'axios';
 
 @Injectable({
   providedIn: 'root'
@@ -81,6 +83,12 @@ export class SpotifyService {
     return artistas.items.map(SpotifyArtistaParaArtista);
   }
 
+  //get track
+  //async principalTrackArtista(artistaId: string, limit = 10): Promise<IFaixa[]>{
+  //  const faixa = await this.spotifyApi.getArtistTopTracks(`https://api.spotify.com/v1/artists/${artistaId}/top-tracks?country=US`);
+  //  return faixa;
+  //}
+
   logout(){
     localStorage.clear();
     this.router.navigate(['/login']);
@@ -94,5 +102,10 @@ export class SpotifyService {
   async executarMusica(musicaID: string){
     await this.spotifyApi.queue(musicaID);
     await this.spotifyApi.skipToNext();
+  }
+
+  async obterMusicaAtual(): Promise<IMusica>{
+    const musicaSpotify = await this.spotifyApi.getMyCurrentPlayingTrack();
+    return SpotifyTrackparaMusica(musicaSpotify.item);
   }
 }
