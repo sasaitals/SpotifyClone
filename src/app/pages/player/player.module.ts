@@ -10,6 +10,9 @@ import { RodapeUsuarioComponent } from '../../components/rodape-usuario/rodape-u
 import { HomeComponent } from '../home/home.component';
 import { TopArtistasComponent } from '../../components/top-artistas/top-artistas.component';
 import { PainelDireitoComponent } from '../../components/painel-direito/painel-direito.component';
+import { BuscarRecentesComponent } from '../../components/buscar-recentes/buscar-recentes.component';
+import { FormsModule } from '@angular/forms';
+import { TopArtistaComponent } from '../../components/top-artista/top-artista.component';
 
 
 
@@ -21,11 +24,14 @@ import { PainelDireitoComponent } from '../../components/painel-direito/painel-d
     RodapeUsuarioComponent,
     HomeComponent,
     TopArtistasComponent,
-    PainelDireitoComponent
+    PainelDireitoComponent,
+    BuscarRecentesComponent,
+    TopArtistaComponent
   ],
   imports: [
     CommonModule,
     FontAwesomeModule,
+    FormsModule,
     RouterModule.forChild(PlayerRotas)
   ]
 })
