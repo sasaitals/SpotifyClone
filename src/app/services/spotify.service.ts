@@ -108,4 +108,16 @@ export class SpotifyService {
     const musicaSpotify = await this.spotifyApi.getMyCurrentPlayingTrack();
     return SpotifyTrackparaMusica(musicaSpotify.item);
   }
+
+  async voltarMusica(){
+    await this.spotifyApi.skipToPrevious();
+  }
+
+  async pausarMusica(){
+    await this.spotifyApi.pause();
+  }
+
+  async proximaMusica(){
+    await this.spotifyApi.skipToNext();
+  }
 }

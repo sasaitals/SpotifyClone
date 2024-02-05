@@ -13,6 +13,8 @@ import { PainelDireitoComponent } from '../../components/painel-direito/painel-d
 import { BuscarRecentesComponent } from '../../components/buscar-recentes/buscar-recentes.component';
 import { FormsModule } from '@angular/forms';
 import { TopArtistaComponent } from '../../components/top-artista/top-artista.component';
+import { ArtistaItemImagemComponent } from '../../components/artista-item-imagem/artista-item-imagem.component';
+import { PlayerCardComponent } from '../../components/player-card/player-card.component';
 
 
 
@@ -26,7 +28,9 @@ import { TopArtistaComponent } from '../../components/top-artista/top-artista.co
     TopArtistasComponent,
     PainelDireitoComponent,
     BuscarRecentesComponent,
-    TopArtistaComponent
+    TopArtistaComponent,
+    ArtistaItemImagemComponent,
+    PlayerCardComponent,
   ],
   imports: [
     CommonModule,
