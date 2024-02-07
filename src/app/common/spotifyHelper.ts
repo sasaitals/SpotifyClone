@@ -5,7 +5,7 @@ import { IPlaylist } from "../Interfaces/IPlaylist";
 import { IUsuario } from "../Interfaces/IUsuario";
 import { IFaixa } from "../Interfaces/IFaixa";
 import axios from "axios";
-import { newMusica } from "./factories";
+import { newMusica, newPlaylist } from "./factories";
 
 export function SpotifyUserParaUsuario(user: SpotifyApi.CurrentUsersProfileResponse): IUsuario{
     return {
@@ -20,6 +20,18 @@ export function SpotifyPlaylistParaPlaylist(playlist: SpotifyApi.PlaylistObjectS
         id: playlist.id,
         nome: playlist.name,
         imagemUrl: playlist.images.pop().url
+    }
+}
+
+export function SpotifySinglePlaylistParaPlaylist(playlist: SpotifyApi.SinglePlaylistResponse): IPlaylist{
+    if(!playlist)
+        return newPlaylist();
+
+    return{
+        id: playlist.id,
+        nome: playlist.name,
+        imagemUrl: playlist.images.shift().url,
+        musica: []
     }
 }
 

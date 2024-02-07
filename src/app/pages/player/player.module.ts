@@ -15,12 +15,15 @@ import { FormsModule } from '@angular/forms';
 import { TopArtistaComponent } from '../../components/top-artista/top-artista.component';
 import { ArtistaItemImagemComponent } from '../../components/artista-item-imagem/artista-item-imagem.component';
 import { PlayerCardComponent } from '../../components/player-card/player-card.component';
+import { ListaMusicasComponent } from '../lista-musicas/lista-musicas.component';
+import { BannerComponent } from '../../components/banner/banner.component';
 
 
 
 @NgModule({
   declarations: [
     PlayerComponent,
+    ListaMusicasComponent,
     PainelEsquerdoComponent,
     BotaoMenuComponent,
     RodapeUsuarioComponent,
@@ -31,6 +34,7 @@ import { PlayerCardComponent } from '../../components/player-card/player-card.co
     TopArtistaComponent,
     ArtistaItemImagemComponent,
     PlayerCardComponent,
+    BannerComponent,
   ],
   imports: [
     CommonModule,
