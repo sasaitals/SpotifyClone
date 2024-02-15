@@ -14,7 +14,7 @@ $h-desconsiderar: calc($h-spotify-logo + $h-menu-opcoes + $h-footer-user);
   display: flex;
   flex-direction: column;
   background-color: $cor-fundo2;
-  box-shadow: 1px 0px 15px #00000012;
+  box-shadow: 1px 0px 15px #ffffff12;
 
   .menus {
     flex-grow: 1;
@@ -52,7 +52,7 @@ $h-desconsiderar: calc($h-spotify-logo + $h-menu-opcoes + $h-footer-user);
         align-self: flex-start;
         font-weight: 700;
         font-size: .7rem;
-        color: $preto-transparent-30;
+        color: $branco;
       }
     }
   }

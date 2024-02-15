@@ -5,20 +5,22 @@
         width: 100%;
         padding: 10px 5px;
         border-radius: 8px;
-        border-color: $preto-transparent-30;
+        border-color: $preto-transparent-70;
         outline: none;
         font-size: 1rem;
         font-weight: 500;
-        color: $cor-primaria;
+        color: $preto;
+        background-color: $branco-transparent-70;
 
         &::placeholder{
-            color: $preto-transparent-30;
+            color: $preto-transparent-70;
             font-size: .85rem;
         }
 
         &:focus, &:active{
             border-color: $cor-primaria;
             border-width: 2px;
+            background-color: $branco;
         }
     }
 
@@ -27,7 +29,7 @@
 
 
         span{
-            background-color: $branco;
+            background-color: $branco-transparent-70;
             margin-right: 5px;
             padding: 5px 10px;
             color: $preto-transparent-70;

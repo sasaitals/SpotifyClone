@@ -5,7 +5,7 @@
     padding: 2px 0px;
 
     &:hover{
-        background-color: $branco;
+        background-color: $branco-transparent-03;
         padding: 2px 5px;
         border-radius: 30px;
     }
@@ -16,7 +16,7 @@
         flex-grow: 0;
     }
     span {
-        color: $preto-transparent-70;
+        color: $branco-transparent-70;
         flex-grow: 1;
         margin-left: 10px;
         font-weight: 600;
