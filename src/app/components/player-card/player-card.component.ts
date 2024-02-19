@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { IMusica } from '../../Interfaces/IMusica';
 import { newMusica } from '../../common/factories';
 import { PlayerService } from '../../services/player.service';
-import { faPause, faStepBackward, faStepForward } from '@fortawesome/free-solid-svg-icons';
+import { faPause, faPlay, faStepBackward, faStepForward } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -11,6 +11,10 @@ import { Subscription } from 'rxjs';
   styleUrl: './player-card.component.scss'
 })
 export class PlayerCardComponent implements OnInit, OnDestroy{
+track: any;
+toggle(arg0: any): string|string[]|Set<string>|{ [klass: string]: any; } {
+throw new Error('Method not implemented.');
+}
 
   musica: IMusica = newMusica();
   subs: Subscription[] = [];
@@ -19,6 +23,7 @@ export class PlayerCardComponent implements OnInit, OnDestroy{
   anteriorIcone = faStepBackward;
   pauseIcone = faPause
   proximoIcone = faStepForward;
+  playIcone = faPlay;
 
   constructor(private playerService: PlayerService) { }
 
@@ -45,7 +50,11 @@ export class PlayerCardComponent implements OnInit, OnDestroy{
   }
 
   pausarMusica(){
-    this.playerService.pausarMusica()
+    this.playerService.pausarMusica();
+  }
+
+  playMusica(){
+    this.playerService.playMusica();
   }
   
   proximaMusica(){
@@ -53,5 +62,7 @@ export class PlayerCardComponent implements OnInit, OnDestroy{
     this.playerService.proximaMusica();
 
   }
+
+  
 
 }
