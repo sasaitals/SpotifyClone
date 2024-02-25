@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { IUsuario } from '../../Interfaces/IUsuario';
 import { SpotifyService } from '../../services/spotify.service';
+import { PlayerService } from '../../services/player.service';
 
 @Component({
   selector: 'app-rodape-usuario',
@@ -14,7 +15,8 @@ export class RodapeUsuarioComponent {
   usuario: IUsuario = null;
 
   constructor(
-    private spotifyService: SpotifyService
+    private spotifyService: SpotifyService,
+    private playerService: PlayerService
   ) { }
 
   ngOnInit(): void {
@@ -23,5 +25,9 @@ export class RodapeUsuarioComponent {
 
   logout() {
     this.spotifyService.logout()
+  }
+
+  pausarMusica(){
+    this.playerService.pausarMusica();
   }
 }

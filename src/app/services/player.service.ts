@@ -22,7 +22,7 @@ export class PlayerService {
     this.definirMusicaAtual(musica);
     this.timerId = setInterval(async () =>{
       await this.obterMusicaAtual();
-    }, 5000)
+    })
   }
 
   definirMusicaAtual(musica: IMusica){
